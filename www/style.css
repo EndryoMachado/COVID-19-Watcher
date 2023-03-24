@@ -5,6 +5,7 @@
 
 body{
   background-color: #A6D0DE;
+  scroll-behavior: smooth;
 }
 
 /*Header css*/
@@ -46,13 +47,28 @@ main{
   margin: auto;
   width: 80%;
   padding: 20px;
-  }
+}
 
 form{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+/*select css*/
+select{
+  width: 245px;
+  height: 40px;
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+  text-align: center;
+  padding: 10px;
+}
+
+.div-options{
+  padding: 15px;
+  margin: auto;
 }
 
 /*radio css*/
@@ -152,4 +168,34 @@ footer{
   margin-bottom: 10px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+
+footer a{
+  color: #04f318;
+  text-decoration: none;
+}
+
+#btnTopo {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 24px;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+#btnTopo::before {
+  content: '\2191';
+}
+
+#btnTopo:hover {
+  background-color: #15272c;
+  color: #04f318;
 }

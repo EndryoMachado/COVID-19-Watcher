@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="teste.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
     <title>COVID-19 Watcher</title>
 </head>
 <body>
@@ -90,7 +91,7 @@
             ?>
         </div>
     </main>
-    
+    <button id="btnTopo"></button>
     <footer>
     <?php
         $sql = "SELECT * FROM `consultas` WHERE data = (SELECT MAX(data) FROM `consultas`) and hora = (SELECT MAX(hora) FROM `consultas` WHERE data = (SELECT MAX(data) FROM `consultas`))";
@@ -98,7 +99,7 @@
         $result = $conn->query($sql);
         while ($row = mysqli_fetch_assoc($result)) {
           $data=new DateTime($row['data']);
-         echo "<p>Última consulta: ".$row['pais']." - ".$data->format('d/m/Y')."</p>";
+         echo "<p>Última consulta: ".$row['pais']." - ".$data->format('d/m/Y')." | Desenvolvido por <a href=\"https://github.com/EndryoMachado\">Endryo Machado</a></p>";
         }
       ?>
     </footer>
