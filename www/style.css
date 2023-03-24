@@ -24,12 +24,21 @@ header{
 }
 
 nav{
+  width: 40%;
+  display: flex;
   margin: auto;
+  justify-content: space-evenly;
 }
 
 nav > a{
   color: white;
   text-decoration: none;
+  padding: 10px;
+}
+
+nav > a:hover{
+  color: #04f318;
+  background-color: #15272c;
 }
 
 main{
@@ -56,6 +65,10 @@ li {
   text-align: center;
 }
 
+li:hover{
+  transform: scale(1.03);
+}
+
 li h3{
   margin: none;
 }
@@ -73,9 +86,11 @@ label {
   height: 150px;
 }
 
+
 label img {
   height: 150px;
 }
+
 
 :checked + label {
   border-color: #04f318;
@@ -88,6 +103,11 @@ button[type="submit"] {
   width: 245px;
   height: 35px;
   border: none;
+}
+
+button[type="submit"]:hover {
+  background-color: #15272c;
+  color: #04f318;
 }
 
 /**/
@@ -118,6 +138,7 @@ th, .total {
   background-color: #24424B;
   color: white;
 }
+
 
 
 footer{

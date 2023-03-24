@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="teste.css">
     <title>COVID-19 Watcher</title>
 </head>
 <body>
     <header>
       <h1>COVID-19 Watcher</h1>
-      <!--
+      
       <nav>
-          <a href="#">Home</a>
-          <a href="#">Histórico de buscas</a>
-          <a href="#">Comparar Países</a>
+          <a href="index.php">Home</a>
+          <a href="historico.php">Histórico de consultas</a>
+          <a href="comparar.php">Comparar Países</a>
       </nav>
-      -->
+      
     </header>
     <main>
         <form action="index.php" method="post">
@@ -24,17 +24,17 @@
           <div class="div-options">
             <ul>
               <li>
-                <input type="radio" name="Pais" id="australia" value="Australia">
+                <input type="radio" name="Pais" id="australia" value="Australia" required>
                 <label for="australia"><img src="img/australia-flag.jpg" alt="Australia"></label>
                 <h3>Australia</h3>
               </li>
               <li>
-                <input type="radio" name="Pais" id="brazil" value="Brazil">
+                <input type="radio" name="Pais" id="brazil" value="Brazil" required>
                 <label for="brazil"><img src="img/brazil-flag.jpg" alt="Brazil"></label>
                 <h3>Brazil</h3>
               </li>
               <li>
-                <input type="radio" name="Pais" id="canada" value="Canada">
+                <input type="radio" name="Pais" id="canada" value="Canada" required>
                 <label for="canada"><img src="img/canada-flag.jpg" alt="Canada"></label>
                 <h3>Canada</h3>
               </li>
@@ -90,9 +90,10 @@
             ?>
         </div>
     </main>
+    
     <footer>
-      <?php
-        $sql = "SELECT * FROM `consultas` WHERE data = (SELECT MAX(data) FROM `consultas`) and hora = (SELECT MAX(hora) FROM `consultas`)";
+    <?php
+        $sql = "SELECT * FROM `consultas` WHERE data = (SELECT MAX(data) FROM `consultas`) and hora = (SELECT MAX(hora) FROM `consultas` WHERE data = (SELECT MAX(data) FROM `consultas`))";
         include_once('config.php');
         $result = $conn->query($sql);
         while ($row = mysqli_fetch_assoc($result)) {
@@ -100,7 +101,6 @@
          echo "<p>Última consulta: ".$row['pais']." - ".$data->format('d/m/Y')."</p>";
         }
       ?>
-      
     </footer>
 </body>
 </html>
